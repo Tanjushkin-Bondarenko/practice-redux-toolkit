@@ -1,6 +1,7 @@
 import { useSelector, useDispatch } from "react-redux";
 import { increment, decrement, reset, incrementByAmount} from "./counterSlice";
 import { useState } from "react";
+import './style.css'
 
 const Counter = () => {
     const count = useSelector((state)=>state.counter.count)
@@ -15,17 +16,17 @@ const Counter = () => {
 
   return (
     <section>
-      <div>{count}</div>
+      <div className="count">{count}</div>
       <div>
       <button onClick={()=>dispatch(increment())}>+</button>
       <button onClick={()=>dispatch(decrement())}>-</button>
      </div>
    
-      <input type="text"
+      <input className="amount" type="text"
       value={incrementAmount}
       onChange={(e)=>setIncrementAmount(e.target.value)}/>
-        <div>
-          <button onClick={()=> dispatch(incrementByAmount(addValue))}>add amount</button>
+    <div>
+      <button onClick={()=> dispatch(incrementByAmount(addValue))}>add amount</button>
       <button onClick={resetAll}>Reset All</button>
      </div>
     </section>
